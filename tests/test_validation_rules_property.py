@@ -26,7 +26,7 @@ class model(StructuredNode, grest.utils.Node):
 def test_validation_rules_property():
     instance = model()
 
-    for rule in instance.__validation_rules__.items():
+    for rule in list(instance.__validation_rules__.items()):
         assert isinstance(rule[1], fields.Field)
         if isinstance(rule[1], fields.List):
             assert isinstance(rule[1].container, fields.Field)
